@@ -1,34 +1,49 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+plt.ion()  # Interactive mode
 
-# Let there are 2 vectors, u and v now if we scale u with a and v with b what kind of combinations we can get,
-# One step is linear combination and all the possile steps are linear span
-
-# Creating vector u
 u = np.array([3, 2])
-
-# creating vector v
 v = np.array([2, 3])
 
-# Let a and b are two constants
-a = 4
-b = 5
+fig, ax = plt.subplots()
 
-# So the linear combination will be
-lc = (a * u) + (b * v)
-print(lc)
-# lets plot this linear combination
-plt.xlim(-10, 10)
-plt.ylim(-10, 10)
+while True:
+    a = int(input("a = "))
+    b = int(input("b = "))
+    au = a*u
+    bv = b*v
+    lc = au + bv
 
-# Created two lines to make it look like a 2D plane
-plt.axhline(y=0)
-plt.axvline(x=0)
+    ax.clear()
 
-# ploting the linear combination
-plt.arrow(0, 0, lc[0], lc[1])
+    ax.set_xlim(-20, 20)
+    ax.set_ylim(-20, 20)
 
-plt.grid()
-plt.show()
+    ax.axhline(0)
+    ax.axvline(0)
 
+    ax.grid(True)
+    ax.set_aspect('equal')
+
+    # Plotting au
+    ax.quiver(0, 0, au[0], au[1], angles='xy', scale_units='xy', scale=1, color='red' )
+    plt.text(au[0], au[1], 'u')
+
+    # plotting bv from the head of au
+    ax.quiver(au[0], au[1], bv[0], bv[1], angles='xy', scale_units='xy', scale=1, color='blue' )
+    plt.text((bv[0]+au[0]), (au[1] + bv[1]), 'v')
+
+    # Plotting the linear combination
+    ax.quiver(
+        0, 0,
+        lc[0], lc[1],
+        angles='xy',
+        scale_units='xy',
+        scale=1,
+        color='green'
+    )
+    plt.text(lc[0], lc[1]+1, 'lc')
+
+    plt.draw()
+    plt.pause(0.01)
