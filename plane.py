@@ -59,5 +59,27 @@ for vector in vectors:
 
 # ploting the arrow
 plt.arrow(0, 0, -3, -2)
+
+
+# Challenge #1
+# Draw a mini house
+
+house = [
+    [-7.5, 5],
+    [-5, 7.5],
+    [-2.5, 5],
+    [-7.5, 5],
+    [-7.5, 0],
+    [-2.5, 0],
+    [-2.5, 5]
+]
+
+x = [p[0] for p in house]
+y = [p[1] for p in house]
+
+plt.plot(x, y)
+
+# Challenge Completed
+
 # show the window 
 plt.show()
