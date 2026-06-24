@@ -15,8 +15,49 @@ plt.grid()
 
 
 # Draw a point on the plane
-plt.plot(3, 2, marker="o")
+plt.plot(2.5, 5, marker="o")
+plt.plot(5, 2.5, marker="o")
+plt.plot(5, 5, marker="o")
+plt.plot(2.5, 2.5, marker="o")
 
+
+# Draw a line
+x = [0, 5]
+y = [0, 3]
+
+plt.plot(x, y)
+
+# Draw a triangle
+x = [1, 5, 9, 1]
+y = [1, 5, 1, 1]
+
+plt.plot(x, y)
+
+# Draw a square
+square = [
+    [-2.5, -2.5],
+    [-2.5, -5],
+    [-5, -5],
+    [-5, -2.5],
+    [-2.5, -2.5]
+]
+
+x = [p[0] for p in square]
+y = [p[1] for p in square]
+
+plt.plot(x, y)
+
+# Draw multiple vectors
+vectors = [
+    [3, 5],
+    [-3, 2],
+    [4, -4]
+]
+for vector in vectors:
+    plt.arrow(0, 0, vector[0], vector[1])
+
+
+# ploting the arrow
 plt.arrow(0, 0, -3, -2)
 # show the window 
 plt.show()
