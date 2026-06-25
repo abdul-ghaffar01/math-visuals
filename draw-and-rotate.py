@@ -14,5 +14,17 @@ plt.axvline(x=0)
 
 plt.gca().set_aspect('equal')
 
-plt.plot(3, 2, marker='o', color='red')
+line = [
+    [1, 1],
+    [10, 1]
+]
+
+x = [p[0] for p in line]
+y = [p[1] for p in line]
+
+# Drawing a line in the first quadrant
+plt.plot(x, y, color='red')
+
+
+plt.grid()
 plt.show()
