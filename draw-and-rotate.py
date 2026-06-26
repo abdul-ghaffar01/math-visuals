@@ -14,10 +14,10 @@ plt.axvline(x=0)
 
 plt.gca().set_aspect('equal')
 
-line = [
-    [1, 1],
-    [10, 1]
-]
+line = np.array([
+    [1, 2],
+    [10, 3]
+])
 
 x = [p[0] for p in line]
 y = [p[1] for p in line]
@@ -25,6 +25,16 @@ y = [p[1] for p in line]
 # Drawing a line in the first quadrant
 plt.plot(x, y, color='red')
 
+# Applying 90 deg rotation transformation on the line
+rotation = np.array([
+    [0, -1],
+    [1, 0]
+])
+
+lineRotated = np.matmul(line, rotation.T)
+new_x = [p[0] for p in lineRotated]
+new_y = [p[1] for p in lineRotated]
+plt.plot(new_x, new_y, color='blue')
 
 plt.grid()
 plt.show()
